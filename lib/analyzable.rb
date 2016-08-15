@@ -14,10 +14,9 @@ module Analyzable
     report << hash_to_string(count_by_brand(products))
     report << "Inventory by Name\n"
     report << hash_to_string(count_by_name(products))
-    puts report
     report
   end
   def hash_to_string(hash)
-    hash.map{|key, value| "\t- #{key}: #{value}\n"}.join('')  
+    hash.map{|key, value| "\t- #{key}: #{value}\n"}.join('')
   end
 end
