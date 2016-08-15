@@ -14,7 +14,7 @@ class Udacidata
     # if product is not yet in database
     if not prod.product_exists_in_db?(prod.id)
       # save in db
-      save_to_db([prod.id].concat(attributes.values))
+      save_to_db(prod)
     end
     # return
     return prod
@@ -57,9 +57,9 @@ class Udacidata
     end
   end
 
-  def self.save_to_db(attributes)
+  def self.save_to_db(product)
     CSV.open(@@file, "ab") do |csv|
-      csv << attributes
+      csv << [product.id, product.brand, product.name, product.price]
     end
   end
 
